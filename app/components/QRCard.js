@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
   return (
@@ -6,7 +7,7 @@ export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-2">🎯 QR Code généré</h3>
 
       <div className="flex flex-col items-center gap-2">
-        <img src={qrUrl} alt="QR Code" className="w-40 h-40 object-contain" />
+        <Image src={qrUrl} alt="QR Code" className="w-40 h-40 object-contain" />
         <p className="text-sm text-gray-500">
           Domaine : <strong>{domaine}</strong><br />
           Thème : <strong>{theme}</strong>

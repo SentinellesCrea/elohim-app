@@ -8,6 +8,7 @@ export default function QRPage({ params }) {
   const [verse, setVerse] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
   const fetchVerse = async () => {
     try {
       const res = await fetch(`/api/qrcodes/${params.id}`);
@@ -17,7 +18,6 @@ export default function QRPage({ params }) {
         throw new Error("QR code invalide");
       }
 
-      // Filtrer les versets en fonction du QR
       const filtered = verses.filter(
         (v) => v.domaine === config.domaine && v.theme === config.theme
       );
@@ -34,9 +34,9 @@ export default function QRPage({ params }) {
     }
   };
 
-  useEffect(() => {
-    fetchVerse();
-  }, []);
+  fetchVerse();
+}, [params.id]); // ✅ on garde params.id comme dépendance
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-100 to-orange-200 p-6 text-center">
