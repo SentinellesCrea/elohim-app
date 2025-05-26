@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import VerseCard from '@/components/VerseCard';
+import VerseCard from '../../components/VerseCard';
 
 export default function DemoQRPage() {
   const [verse, setVerse] = useState(null);
