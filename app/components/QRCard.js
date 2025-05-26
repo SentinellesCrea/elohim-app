@@ -1,5 +1,4 @@
 'use client';
-import Image from "next/image";
 
 export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
   return (
@@ -7,14 +6,19 @@ export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-2">🎯 QR Code généré</h3>
 
       <div className="flex flex-col items-center gap-2">
-        <Image src={qrUrl} alt="QR Code" className="w-40 h-40 object-contain" />
+        {/* ✅ désactivation de l’avertissement ESLint + image classique */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={qrUrl} alt="QR Code" className="w-40 h-40 object-contain" />
+
         <p className="text-sm text-gray-500">
           Domaine : <strong>{domaine}</strong><br />
           Thème : <strong>{theme}</strong>
         </p>
+
         <a href={qrLink} className="text-blue-600 underline text-sm" target="_blank" rel="noopener noreferrer">
           Accéder au lien
         </a>
+
         <a
           href={qrUrl}
           download="elohim-qrcode.png"

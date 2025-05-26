@@ -10,7 +10,9 @@ export default function Navbar() {
         <Link href="/qr/demo" className="text-gray-700 hover:text-orange-600">Verset</Link>
         <Link href="/about" className="text-gray-700 hover:text-orange-600">À propos</Link>
         <Link href="/contact" className="text-gray-700 hover:text-orange-600">Contact</Link>
-        <Link href="/admin/login" className="text-white bg-orange-600 px-3 py-1 rounded hover:bg-orange-700">Admin</Link>
+        <Link href="/admin/dashboard" className="text-white bg-orange-600 px-3 py-1 rounded hover:bg-orange-700">
+          Admin
+        </Link>
       </div>
     </nav>
   );
