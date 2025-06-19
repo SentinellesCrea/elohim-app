@@ -1,6 +1,6 @@
 'use client';
 
-export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
+export default function QRCard({ qrUrl, qrLink, domaine }) {
   return (
     <div className="w-full max-w-md bg-white rounded-xl shadow-md p-6 text-center border border-gray-200">
       <h3 className="text-lg font-semibold text-gray-800 mb-2">🎯 QR Code généré</h3>
@@ -12,7 +12,6 @@ export default function QRCard({ qrUrl, qrLink, domaine, theme }) {
 
         <p className="text-sm text-gray-500">
           Domaine : <strong>{domaine}</strong><br />
-          Thème : <strong>{theme}</strong>
         </p>
 
         <a href={qrLink} className="text-blue-600 underline text-sm" target="_blank" rel="noopener noreferrer">

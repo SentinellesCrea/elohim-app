@@ -5,14 +5,13 @@ import QRCard from '../../components/QRCard';
 
 export default function AdminDashboard() {
   const [domaine, setDomaine] = useState('');
-  const [theme, setTheme] = useState('');
   const [qrData, setQrData] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch('/api/qrcodes/create', {
       method: 'POST',
-      body: JSON.stringify({ domaine, theme }),
+      body: JSON.stringify({ domaine}),
       headers: { 'Content-Type': 'application/json' },
     });
     const data = await res.json();
@@ -31,14 +30,7 @@ export default function AdminDashboard() {
           className="w-full border p-2 rounded"
           required
         />
-        <input
-          type="text"
-          placeholder="Thème (ex : Espérance)"
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
+  
         <button type="submit" className="bg-orange-600 text-white px-4 py-2 rounded">
           Générer
         </button>
@@ -50,7 +42,6 @@ export default function AdminDashboard() {
             qrUrl={qrData.qrUrl}
             qrLink={`${process.env.NEXT_PUBLIC_BASE_URL}/qr/${qrData.id}`}
             domaine={qrData.domaine}
-            theme={qrData.theme}
           />
         </div>
       )}

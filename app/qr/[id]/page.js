@@ -28,7 +28,12 @@ export default function QRPage({ params }) {
       setVerse(random);
     } catch (err) {
       console.error(err);
-      setVerse({ texte: "QR code non reconnu ou aucun verset disponible.", reference: "", domaine: "", theme: "" });
+      setVerse({
+        texte: "Aucun verset disponible pour ce domaine et thème.",
+        reference: "",
+        domaine: config.domaine,
+        theme: config.theme,
+      });
     } finally {
       setLoading(false);
     }
