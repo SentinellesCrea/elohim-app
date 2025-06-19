@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import verses from '@/data/verses';
-import VerseCard from '@/components/VerseCard';
+import verses from '../../../data/verses';
+import VerseCard from '../../components/VerseCard';
 
 export default function QRPage({ params }) {
   const [verse, setVerse] = useState(null);
